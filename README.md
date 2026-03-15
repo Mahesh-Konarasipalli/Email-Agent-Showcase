@@ -1,109 +1,87 @@
-<h1 align="center">🛡️ Project Sentinel: Autonomous AI Email Agent 🛡️</h1>
+<h1 align="center">🛡️ Project Sentinel: Autonomous AI Email Agent</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Architecture-Java--17-orange?style=for-the-badge" alt="Java 17" />
-  <img src="https://img.shields.io/badge/Framework-Spring--Boot--v3.x-green?style=for-the-badge" alt="Spring Boot 3" />
+  <img src="https://img.shields.io/badge/Architecture-Java--17-orange?style=for-the-badge&logo=java" alt="Java 17" />
+  <img src="https://img.shields.io/badge/Framework-Spring--Boot--v3.x-green?style=for-the-badge&logo=springboot" alt="Spring Boot 3" />
   <img src="https://img.shields.io/badge/Deployment-Render-43c3d3?style=for-the-badge&logo=render&logoColor=white" alt="Render Deployment" />
   <img src="https://img.shields.io/badge/Repo--Status-Public--Showcase-blue?style=for-the-badge" alt="Public Showcase" />
 </p>
 
-<p align="center">
-  <b>The sanitized core logic of a live, background-deployed AI assistant.</b><br>
-  Built with Java and Spring Boot to monitor, analyze, and act on emails autonomously.
-</p>
+> **The sanitized core logic of a live, background-deployed AI assistant.**
+> Built with Java and Spring Boot to monitor, analyze, and act on emails autonomously.
 
 ---
 
 ## 🚀 The Core Vision: An Intelligence Layer for your Inbox
 
-`Project Sentinel` isn't just an email filter; it's a persistent digital aide. This repository showcases the "brain" of the operation: the Java code that connects to IMAP servers, processes natural language, and determines appropriate actions.
+`Project Sentinel` isn't just an email filter; it's a persistent digital aide. This repository showcases the "brain" of the operation: the Java backend that connects to IMAP servers, processes natural language, and determines appropriate actions.
 
-To maintain security and best practices, this project utilizes a dual-repository strategy:
+To maintain security and enterprise best practices, this project utilizes a dual-repository strategy:
 
-| Repository Type | Purpose | Security |
+| 🗄️ Repository Type | 🎯 Purpose | 🔒 Security Posture |
 | :--- | :--- | :--- |
-| **🌎 Public Showcase (This Repo)** | Displays architecture, logic, and code quality to recruiters/developers. | **100% Sanitized.** No secrets, no personal data, placeholder `.env` files only. |
-| **🔒 Private Runner** | The active production version that contains actual credentials. | **Private.** Connected to a live Render instance for background execution. |
+| **🌎 Public Showcase (This Repo)** | Displays architecture, logic, and code quality. | **100% Sanitized.** No secrets, no personal data. Placeholder configurations only. |
+| **🔐 Private Runner** | The active production environment. | **Private.** Contains live credentials, connected to a Render instance for background execution. |
 
 ---
 
 ## 🧠 System Intelligence & Data Flow
 
-When `Project Sentinel` is active, it doesn't just read words; it understands context. The image below visualizes how the Java backend takes an incoming IMAP email packet and routes it through an AI model for deep analysis. It highlights the classification engine that determines if an email needs user intervention, automated reply, or summary.
+When `Project Sentinel` is active, it doesn't just read words; it understands context. The pipeline takes an incoming IMAP email packet and routes it through an AI model for deep analysis, classifying if an email needs user intervention, an automated reply, or a quick summary.
 
 <p align="center">
-  <img src="screenshots/agent_analysis.png" alt="Sentinel AI: Backend Processing and Neural Analysis Visualization" width="850">
+  <img src="screenshots/agent_analysis.png" alt="Sentinel AI: Backend Processing and Neural Analysis Visualization" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <br>
-  <i>Visualization: How the agent backend processes raw email data using AI.</i>
+  <i>Visualization: How the backend processes raw email data using AI.</i>
 </p>
 
 ### 🛠️ Key Backend Features
-* **Persistent Monitoring:** Uses a background `Scheduling` task in Spring Boot to continuously poll the configured IMAP server without manual triggers.
-* **LLM Integration:** Leverages AI (via secure API connection) to perform sentiment analysis, intent classification, and summary generation.
-* **Credential Security:** Built 100% on externalized environment variables (Spring Profiles and System Envs), ensuring zero secrets are stored in the codebase.
-* **Maven Wrapper (`mvnw`):** Included for seamless, environment-agnostic builds and testing by third parties.
+* **Persistent Monitoring:** Uses a background `@Scheduled` task in Spring Boot to continuously poll the configured IMAP server.
+* **LLM Integration:** Leverages AI via a secure REST API to perform sentiment analysis, intent classification, and summary generation.
+* **Credential Security:** Built 100% on externalized environment variables ensuring zero secrets are hardcoded.
 
 ---
 
 ## 📡 Telegram Integration: The Live Control Panel
 
-A critical part of a background agent is human-in-the-loop control. The live version of `Project Sentinel` communicates with the owner via a secure Telegram Bot.
-
-The image below demonstrates a real interaction between the owner and the agent's background service. The backend uses the Telegram Bot API to send summaries of urgent emails or request permission before executing sensitive actions (like sending a draft).
+A critical part of a background agent is human-in-the-loop control. The live version of `Project Sentinel` communicates with the owner via a secure Telegram Bot interface.
 
 <p align="center">
-  <img src="screenshots/Telegrame_messages.jpg" alt="Telegram Mobile Interface showing Sentinel Agent Interaction" width="400">
+  <img src="screenshots/Telegrame_messages.jpg" alt="Telegram Mobile Interface showing Sentinel Agent Interaction" width="350" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <br>
   <i>Live Interaction: Receiving summaries and controlling the background agent via Telegram.</i>
 </p>
 
-### How the Telegram Layer Works:
-1.  The agent identifies an "Urgent" or "Action Required" email during its scheduled run.
-2.  Instead of acting autonomously, it pauses and generates a simplified notification.
-3.  This notification is pushed via the Telegram API to the owner's private chat.
-4.  The owner can respond with simple commands (e.g., `/approve_send`, `/ignore`, `/summarize`) which the backend interprets and executes.
+### 🕹️ How the Telegram Layer Works:
+1. The agent identifies an "Urgent" or "Action Required" email.
+2. It pauses execution and generates a simplified notification push via the Telegram API.
+3. The owner responds with simple commands like <kbd>/approve</kbd>, <kbd>/ignore</kbd>, or <kbd>/summarize</kbd>.
+4. The Spring Boot backend intercepts the webhook, interprets the command, and executes the action.
 
 ---
 
 ## 💻 Technical Deep Dive
 
-### 🏗️ Tech Stack
-* **Java 17** (LTS)
-* **Spring Boot 3.x**
-* **Spring Integration** (Mail/IMAP)
-* **Maven** (Dependency & Build Management)
-* **Telegram Bot API** (Notification/Control Layer)
-* **[Insert AI Provider, e.g., OpenAI/HuggingFace] API** (Intelligence Layer)
+<details>
+<summary><b>Click to expand the Tech Stack details</b></summary>
+<br>
 
-### 📦 Local Setup for Public Exploration
+* **Core:** Java 17 (LTS)
+* **Framework:** Spring Boot 3.x
+* **Integrations:** Spring Mail / IMAP protocols
+* **Build Tool:** Maven 
+* **Control Layer:** Telegram Bot API
+* **Intelligence Layer:** Groq API / OpenAI *(Update to match your specific AI)*
 
-While you cannot run *my* specific agent (as it requires my specific secrets), you can explore, build, and adapt the architecture.
+</details>
 
-1.  **Clone the Sanitized Repository:**
-    ```bash
-    git clone [https://github.com/](https://github.com/)[INSERT_YOUR_USERNAME]/[INSERT_PUBLIC_REPO_NAME].git
-    cd [INSERT_PUBLIC_REPO_NAME]
-    ```
+<details>
+<summary><b>Click to expand Local Setup Instructions</b></summary>
+<br>
 
-2.  **Review the Configuration Template:**
-    Inspect `src/main/resources/application.properties.example` or `.env.example`. This file shows *every* secret required by the system, fully sanitized. To run your own version, you must create a real `.env` file based on this template.
+While you cannot run my personal deployment, you can explore and adapt the architecture locally.
 
-3.  **Build and Test (No Maven Installation Needed):**
-    Use the included Maven Wrapper to compile and run the sanitized codebase.
-
-    **Windows:**
-    ```cmd
-    mvnw.cmd clean install
-    ```
-
-    **Mac/Linux:**
-    ```bash
-    ./mvnw clean install
-    ```
-
----
-
-<p align="center">
-  <b>Project Sentinel is a showcase of secure architecture, practical AI integration, and production-ready Java development.</b><br>
-  Developed by Mahesh-Konarasipalli/Konarasipalli Mahesh. Connect with me on <a href=https://www.linkedin.com/in/mahesh-konarasipalli-6797882a2/>LinkedIn</a> or <a href=https://github.com/Mahesh-Konarasipalli>GitHub</a>.
-</p>
+**1. Clone the Sanitized Repository:**
+```bash
+git clone [https://github.com/Mahesh-Konarasipalli/AI-Email-Agent.git](https://github.com/Mahesh-Konarasipalli/AI-Email-Agent.git)
+cd AI-Email-Agent
