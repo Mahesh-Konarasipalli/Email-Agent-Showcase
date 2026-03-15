@@ -91,5 +91,3 @@ A critical part of a background agent is human-in-the-loop control. The live ver
 * **Intelligence Layer:** Groq API / OpenAI 
 
 </details>
-
-<details>
