@@ -32,7 +32,7 @@ To maintain security and best practices, this project utilizes a dual-repository
 When `Project Sentinel` is active, it doesn't just read words; it understands context. The image below visualizes how the Java backend takes an incoming IMAP email packet and routes it through an AI model for deep analysis. It highlights the classification engine that determines if an email needs user intervention, automated reply, or summary.
 
 <p align="center">
-  <img src="agent_analysis.png" alt="Sentinel AI: Backend Processing and Neural Analysis Visualization" width="850">
+  <img src="screenshots/agent_analysis.png" alt="Sentinel AI: Backend Processing and Neural Analysis Visualization" width="850">
   <br>
   <i>Visualization: How the agent backend processes raw email data using AI.</i>
 </p>
@@ -52,7 +52,7 @@ A critical part of a background agent is human-in-the-loop control. The live ver
 The image below demonstrates a real interaction between the owner and the agent's background service. The backend uses the Telegram Bot API to send summaries of urgent emails or request permission before executing sensitive actions (like sending a draft).
 
 <p align="center">
-  <img src="Telegrame_messages.jpg" alt="Telegram Mobile Interface showing Sentinel Agent Interaction" width="400">
+  <img src="screenshots/Telegrame_messages.jpg" alt="Telegram Mobile Interface showing Sentinel Agent Interaction" width="400">
   <br>
   <i>Live Interaction: Receiving summaries and controlling the background agent via Telegram.</i>
 </p>
