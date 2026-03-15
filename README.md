@@ -93,12 +93,3 @@ A critical part of a background agent is human-in-the-loop control. The live ver
 </details>
 
 <details>
-<summary><b>📦 Click to expand Local Setup Instructions</b></summary>
-<br>
-
-While you cannot run my personal deployment, you can explore and adapt the architecture locally.
-
-**1. Clone the Sanitized Repository:**
-```bash
-git clone [https://github.com/Mahesh-Konarasipalli/AI-Email-Agent.git](https://github.com/Mahesh-Konarasipalli/AI-Email-Agent.git)
-cd AI-Email-Agent
