@@ -88,7 +88,7 @@ A critical part of a background agent is human-in-the-loop control. The live ver
 * **Integrations:** Spring Mail / IMAP protocols
 * **Build Tool:** Maven 
 * **Control Layer:** Telegram Bot API
-* **Intelligence Layer:** Groq API / OpenAI *(Update to match your specific AI)*
+* **Intelligence Layer:** Groq API / OpenAI 
 
 </details>
 
